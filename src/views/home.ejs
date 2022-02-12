@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href=" ">
+    <title>Disney keypad</title>
+</head>
+<body>
+
+    <div class="keys">
+
+        <!-- https://keycode.info/ for knowing number = key  -->
+
+        <!-- Lion King -->
+        <div data-key="81" class="key">
+            <span class="sound">
+                <video data-key="81" id="lionKing"> 
+                    <source src="../videos/lionKing.mp4" type="video/mp4">
+                </video>
+            </span>
+            <kbd>Q - Lion King</kbd>
+        </div>
+
+        <!-- Aladdin -->
+        <div data-key="87" class="key">
+            <span class="sound">
+                <video data-key="87" id="aladdin">> 
+                    <source src="../videos/aladdin.mp4" type="video/mp4">
+                </video>
+            </span>
+            <kbd>W - Aladdin</kbd>
+        </div>
+
+        <!-- Beauty And The Beast -->
+        <div data-key="69" class="key">
+            <span class="sound">
+                <video data-key="69"> 
+                    <source src="../videos/beautyAndTheBeast.mp4" type="video/mp4">
+                </video>
+            </span>
+            <kbd>E - Beauty & the Beast</kbd>
+        </div>
+
+        <!-- Toy Story -->
+        <div data-key="82" class="key">
+            <span class="sound">
+                <video data-key="82"> 
+                    <source src="../videos/toyStory.mp4" type="video/mp4">
+                </video>
+            </span>
+            <kbd>R - Toy Story</kbd>
+        </div>
+
+        <!-- Hercules -->
+        <div data-key="84" class="key">
+            <span class="sound">
+                <video data-key="84"> 
+                    <source src="../videos/hercules.mp4" type="video/mp4">
+                </video>
+            </span>
+            <kbd>T - Hercules</kbd>
+        </div>
+    </div>
+
+        <p class="text">To start and pause a video press the indicated key</p>
+
+        <div class="keys">
+
+        <!-- Pocahontas -->
+        <div data-key="65" class="key">
+        <span class="sound">
+            <video data-key="65"> 
+                <source src="../videos/pocahontas.mp4" type="video/mp4">
+            </video>
+        </span>
+        <kbd>A - Pocahontas</kbd>
+        </div>
+
+        <!-- Frozen -->
+        <div data-key="83" class="key">
+            <span class="sound">
+                <video data-key="83"> 
+                    <source src="../videos/frozen.mp4" type="video/mp4">
+                </video>
+            </span>
+        <kbd>S - Frozen</kbd>
+        </div>
+
+        <!-- Little Mermaid -->
+        <div data-key="68" class="key">
+            <span class="sound">
+                <video data-key="68"> 
+                    <source src="../videos/littleMermaid.mp4" type="video/mp4">
+                </video>
+            </span>
+        <kbd>D - Little Mermaid</kbd>
+        </div>
+
+        <!-- Tangled -->
+        <div data-key="70" class="key">
+            <span class="sound">
+                <video data-key="70"> 
+                    <source src="../videos/tangled.mp4" type="video/mp4">
+                </video>
+            </span>
+        <kbd>F - Tangled</kbd>
+        </div>
+        
+        <!-- Tarzan -->
+        <div data-key="71" class="key">
+            <span class="sound">
+                <video data-key="71"> 
+                    <source src="../videos/tarzan.mp4" type="video/mp4">
+                </video>
+            </span>
+        <kbd>G - Tarzan</kbd>
+        </div>
+    </div>
+
+        <script>
+            
+            function playVideo(e){                
+                const video = document.querySelector(`video[data-key="${e.keyCode}"]`); //a la varibale video le asignamos del evento la propiedad keyCode del video.mp4qw
+                const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) //queremos que el efecto css triggers con el evento
+                if (!video){return}//cancelamos la ejecución de la función (si tocamos cualquier tecla que no sea una asignada a un video no saldrá null)
+                key.classList.add('playing'); //cuando se presiona la tecla el atributo playing se ejecuta 
+                if (video.paused){
+                    video.play()
+                } else {
+                    video.pause()
+                }
+            };
+                
+            function removeTransition(e){
+                if (e.propertyName !== 'transform') return; //si no es un propiedad del tipo transform corta la función
+                this.classList.remove('playing') //eliminamos animación el atributo playing cuando transform termina
+            };
+
+            function endVideo (e){
+                if(e.type){
+                    this.pause(video)
+                }
+            }
+        
+            const keys = document.querySelectorAll(".key"); //me devuelve todas las keys que tienen una función asignada
+            keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //transitionend is a HTML DOM Event
+            window.addEventListener('keydown', playVideo) // keydown is a HTML DOM Event. creamos la instancia para un evento cuando presionamos una tecla
+        
+         
+
+            
+        </script>
+    </div>
+</body>
+</html>
