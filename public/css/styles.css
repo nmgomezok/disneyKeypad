@@ -77,15 +77,11 @@ kbd {
   display: none;
 }
 
-
-
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
 
   .hide{
     display: none;
   }
-
-  
 
   .textB {
     color: white;
@@ -95,6 +91,7 @@ kbd {
     top: 50%;
     border: 1px solid black;
     background-color: black;
+    text-align: center;
   }
 
   .textBcenter{
@@ -109,6 +106,4 @@ kbd {
     background-position: center;
   
   }
-
-
 }
