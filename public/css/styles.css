@@ -96,6 +96,10 @@ kbd {
     height: 100%;
   }
 
+  .textCcenter{
+    display: none;
+  }
+
 }
 
 
