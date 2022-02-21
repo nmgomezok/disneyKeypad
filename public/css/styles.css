@@ -103,11 +103,10 @@ kbd {
   html {
     background: url("/img/disney.jpg");
     background-size: cover;
+    height: 100%;
+    background-position: center;
   
   }
 
-  .textCcenter{
-    display: none;
-  }
 
 }
