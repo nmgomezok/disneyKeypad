@@ -75,7 +75,7 @@ kbd {
 
 @media (max-width: 1200px) {
 
-  .hide .textCcenter{
+  .hide{
     display: none;
   }
 
