@@ -69,15 +69,23 @@ kbd {
   font-weight: 400;
 }
 
-.textBcenter .textCcenter{
+.textBcenter{
   display: none;
 }
+
+.textCcenter { 
+  display: none;
+}
+
+
 
 @media (max-width: 1200px) {
 
   .hide{
     display: none;
   }
+
+  
 
   .textB {
     color: white;
@@ -92,32 +100,14 @@ kbd {
     justify-content: center;
   }
 
-  html{
-    height: 100%;
+  html {
+    background: url("/img/disney.jpg");
+    background-size: cover;
+  
   }
 
   .textCcenter{
     display: none;
   }
-
-}
-
-
-@media (orientation: landscape) {
-  .textBcenter{
-    display: none;
-  }
-  .textCcenter{
-    display: flex;
-    justify-content: center;
-  }
-  .textC {
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
-    position: absolute;
-    top: 50%;
-  }
-
 
 }
