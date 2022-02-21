@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="icon" href=" ">
+    <script src="https://kit.fontawesome.com/2d82c28da0.js" crossorigin="anonymous"></script>
     <title>Disney keypad</title>
 </head>
 <body>
+    <script src="/js/script.js" type="text/javascript"></script>
+
+    <div class="textBcenter">
+        <p class="textB">This app does not run in this resolution</p>
+    </div>
+
+    <div class="textCcenter">
+        <p class="textC">This app does not run in landscape</p>
+    </div>
+
+    <div class="hide">
 
     <div class="keys">
+
+
 
         <!-- https://keycode.info/ for knowing number = key  -->
 
@@ -65,9 +79,9 @@
         </div>
     </div>
 
-        <p class="text">To start and pause a video press the indicated key</p>
+        <p class="textA">To <i class="fa-solid fa-play"></i> and <i class="fa-solid fa-pause"></i> a video press the indicated <i class="fa-solid fa-keyboard"></i></p>
 
-        <div class="keys">
+    <div class="keys">
 
         <!-- Pocahontas -->
         <div data-key="65" class="key">
@@ -120,39 +134,8 @@
         </div>
     </div>
 
-        <script>
-            
-            function playVideo(e){                
-                const video = document.querySelector(`video[data-key="${e.keyCode}"]`); //a la varibale video le asignamos del evento la propiedad keyCode del video.mp4qw
-                const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) //queremos que el efecto css triggers con el evento
-                if (!video){return}//cancelamos la ejecución de la función (si tocamos cualquier tecla que no sea una asignada a un video no saldrá null)
-                key.classList.add('playing'); //cuando se presiona la tecla el atributo playing se ejecuta 
-                if (video.paused){
-                    video.play()
-                } else {
-                    video.pause()
-                }
-            };
-                
-            function removeTransition(e){
-                if (e.propertyName !== 'transform') return; //si no es un propiedad del tipo transform corta la función
-                this.classList.remove('playing') //eliminamos animación el atributo playing cuando transform termina
-            };
-
-            function endVideo (e){
-                if(e.type){
-                    this.pause(video)
-                }
-            }
-        
-            const keys = document.querySelectorAll(".key"); //me devuelve todas las keys que tienen una función asignada
-            keys.forEach(key => key.addEventListener('transitionend', removeTransition)); //transitionend is a HTML DOM Event
-            window.addEventListener('keydown', playVideo) // keydown is a HTML DOM Event. creamos la instancia para un evento cuando presionamos una tecla
-        
-         
-
-            
-        </script>
+   
     </div>
+
 </body>
 </html>
